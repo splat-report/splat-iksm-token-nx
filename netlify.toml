@@ -1,0 +1,5 @@
+[build]
+publish = "site/"
+
+[functions]
+included_files = ["node_modules/nxapi/resources/**"]
