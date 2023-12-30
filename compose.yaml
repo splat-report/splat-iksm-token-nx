@@ -1,0 +1,6 @@
+services:
+  redis:
+    image: redis:7
+    command: "--save '' --appendonly no --maxmemory-policy allkeys-lru --maxmemory 5mb"
+    ports:
+      - "6379:6379"
