@@ -1,0 +1,12 @@
+{
+  "fmt": {
+    "include": [
+      "netlify/edge-functions/**/*.ts"
+    ]
+  },
+  "lint": {
+    "include": [
+      "netlify/edge-functions/**/*.ts"
+    ]
+  }
+}

@@ -2,7 +2,6 @@ import type {Config} from "@netlify/functions";
 import {addUserAgent, ErrorResponse} from "nxapi";
 import CoralApi from "nxapi/coral";
 import SplatNet3Api from "nxapi/splatnet3";
-import {sha256hashOf} from "../crypt.ts";
 import {redis, withMutex} from "../redis.ts";
 import {createCipheriv, createDecipheriv, scrypt, randomBytes} from "node:crypto";
 
@@ -184,4 +183,9 @@ async function login(sessionToken: string): Promise<BulletToken> {
     country: splat.country,
     version: splat.version,
   }
+}
+
+export async function sha256hashOf(x: string) {
+  const buf = await crypto.subtle.digest("SHA-256", textEncoder.encode(x));
+ return Buffer.from(buf).toString("hex");
 }
